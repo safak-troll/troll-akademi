@@ -22,22 +22,22 @@
 
         /* ÜST BAŞLIK */
         header {
-            background: linear-gradient(90deg, #8b0000, #ff0000, #8b0000);
+            background: linear-gradient(90deg, #003366, #00bfff, #003366);
             padding: 20px;
             text-align: center;
-            border-bottom: 3px solid #ff0000;
-            box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+            border-bottom: 3px solid #00bfff;
+            box-shadow: 0 0 20px rgba(0, 191, 255, 0.5);
         }
 
         header h1 {
             font-size: 32px;
             color: white;
-            text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000;
+            text-shadow: 0 0 10px #00bfff, 0 0 20px #00bfff;
             letter-spacing: 2px;
         }
 
         header p {
-            color: #ffcccc;
+            color: #cceeff;
             font-size: 14px;
             margin-top: 5px;
         }
@@ -52,8 +52,8 @@
         /* SOL MENÜ */
         nav {
             width: 250px;
-            background: #1a0000;
-            border-right: 2px solid #ff0000;
+            background: #001a33;
+            border-right: 2px solid #00bfff;
             padding: 20px 0;
             flex-shrink: 0;
         }
@@ -62,7 +62,7 @@
             display: block;
             width: 100%;
             background: transparent;
-            color: #ff6666;
+            color: #66d9ff;
             border: none;
             padding: 18px 25px;
             text-align: left;
@@ -74,17 +74,17 @@
         }
 
         nav button:hover {
-            background: rgba(255, 0, 0, 0.1);
-            color: #ff0000;
-            border-left: 4px solid #ff0000;
+            background: rgba(0, 191, 255, 0.1);
+            color: #00bfff;
+            border-left: 4px solid #00bfff;
         }
 
         nav button.active {
-            background: rgba(255, 0, 0, 0.2);
-            color: #ff0000;
-            border-left: 4px solid #ff0000;
+            background: rgba(0, 191, 255, 0.2);
+            color: #00bfff;
+            border-left: 4px solid #00bfff;
             font-weight: bold;
-            text-shadow: 0 0 8px #ff0000;
+            text-shadow: 0 0 8px #00bfff;
         }
 
         /* SAĞ İÇERİK */
@@ -109,11 +109,11 @@
         }
 
         main h2 {
-            color: #ff0000;
+            color: #00bfff;
             font-size: 28px;
             margin-bottom: 20px;
-            text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
-            border-bottom: 2px solid #ff0000;
+            text-shadow: 0 0 10px rgba(0, 191, 255, 0.5);
+            border-bottom: 2px solid #00bfff;
             padding-bottom: 10px;
         }
 
@@ -134,16 +134,16 @@
         }
 
         .kart {
-            background: #1a0000;
-            border: 1px solid #ff0000;
+            background: #001a33;
+            border: 1px solid #00bfff;
             border-radius: 10px;
             padding: 20px;
             margin-bottom: 20px;
-            box-shadow: 0 0 15px rgba(255, 0, 0, 0.2);
+            box-shadow: 0 0 15px rgba(0, 191, 255, 0.2);
         }
 
         .kart h3 {
-            color: #ff3333;
+            color: #33ccff;
             margin-bottom: 10px;
         }
 
@@ -155,7 +155,7 @@
             nav {
                 width: 100%;
                 border-right: none;
-                border-bottom: 2px solid #ff0000;
+                border-bottom: 2px solid #00bfff;
                 padding: 10px 0;
             }
             nav button {
@@ -238,13 +238,9 @@
 
     <script>
         function sayfaGoster(id, btn) {
-            // Tüm sayfaları gizle
             document.querySelectorAll('.sayfa').forEach(s => s.classList.remove('active'));
-            // Tüm butonlardan active kaldır
             document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
-            // İstenen sayfayı göster
             document.getElementById(id).classList.add('active');
-            // Tıklanan butonu aktif yap
             btn.classList.add('active');
         }
     </script>
