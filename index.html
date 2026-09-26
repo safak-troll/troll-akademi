@@ -111,6 +111,10 @@
         }
 
         header h1 {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
             font-size: 34px;
             background: linear-gradient(90deg, #60a5fa, #06b6d4, #818cf8);
             -webkit-background-clip: text;
@@ -119,6 +123,25 @@
             letter-spacing: 2px;
             filter: drop-shadow(0 0 20px rgba(96, 165, 250, 0.5));
             font-weight: 800;
+            flex-wrap: wrap;
+        }
+
+        .logo-resim {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #60a5fa;
+            box-shadow: 0 0 20px rgba(96, 165, 250, 0.7),
+                        0 0 40px rgba(6, 182, 212, 0.4);
+            transition: all 0.3s ease;
+            -webkit-text-fill-color: initial;
+        }
+
+        .logo-resim:hover {
+            transform: scale(1.15) rotate(5deg);
+            box-shadow: 0 0 30px rgba(96, 165, 250, 0.9),
+                        0 0 60px rgba(6, 182, 212, 0.6);
         }
 
         header p {
@@ -273,7 +296,6 @@
             font-weight: 700;
         }
 
-        /* ZİYARETÇİ SAYACI */
         .sayac-alani {
             position: relative;
             z-index: 10;
@@ -329,6 +351,11 @@
             }
             header h1 {
                 font-size: 22px;
+                gap: 12px;
+            }
+            .logo-resim {
+                width: 50px;
+                height: 50px;
             }
             main h2 {
                 font-size: 24px;
@@ -352,7 +379,10 @@
     <div class="blur-indigo"></div>
 
     <header>
-        <h1>🎭 TROLL AKADEMİ 🎭</h1>
+        <h1>
+            <img src="FOTO-ADI.jpg" alt="Troll Logo" class="logo-resim">
+            TROLL AKADEMİ 🎭
+        </h1>
         <p>FiveM Troll Rehberi — Eğlen, Troll Yap, Ban Yeme!</p>
     </header>
 
@@ -365,7 +395,6 @@
         </nav>
 
         <main>
-            <!-- ANA SAYFA -->
             <div id="ana" class="sayfa active">
                 <h2>Hoş Geldin Troll Kardeşim! 👋</h2>
                 <p>Burası <strong>Troll Akademi</strong> — FiveM'de troll yapmayı sevenlerin buluşma noktası.</p>
@@ -382,7 +411,6 @@
                 </div>
             </div>
 
-            <!-- TROLL SAYFASI -->
             <div id="troll" class="sayfa">
                 <h2>😈 Troll Nasıl Yapılır?</h2>
                 <p>Bizim yaptığımız troller <strong>kaliteli troll</strong>dür. Öyle sıradan troll yapanlara benzemez bizim işimiz. Biz troll yaparken öyle bir troll yapacağız ki <strong>karşıdaki kişi bunu asla anlamayacak</strong>. Adamı trollersin, parasını çalarsın, arabasını çalarsın — her türlü trollü yaparsın ama adam bunu anlamaz bile, seni normal biri sanar.</p>
@@ -433,7 +461,6 @@
                 </div>
             </div>
 
-            <!-- BAN YEMEME SAYFASI -->
             <div id="ban" class="sayfa">
                 <h2>🛡️ Ban Yememe Taktikleri</h2>
                 <p>Troll yapmak güzel ama <strong>ban yememek daha önemli</strong>. Çünkü ban yersen bir daha o sunucuya giremezsin, emeklerin boşa gider. İşte ban yememenin altın kuralları:</p>
@@ -469,7 +496,6 @@
                 </div>
             </div>
 
-            <!-- KLİPLER SAYFASI -->
             <div id="klipler" class="sayfa">
                 <h2>🎬 Efsane Klipler</h2>
                 <p>Buraya YouTube kliplerini ekleyeceğiz.</p>
@@ -481,7 +507,6 @@
         </main>
     </div>
 
-    <!-- ZİYARETÇİ SAYACI -->
     <div class="sayac-alani">
         <p>👀 Bu siteyi toplam kaç kişi ziyaret etti?</p>
         <a href="https://hits.sh/safak-troll.github.io/troll-akademi/">
