@@ -98,6 +98,7 @@
             50% { transform: translate(-40%, -60%) scale(1.2); }
         }
 
+        /* ÜST BAŞLIK */
         header {
             position: relative;
             z-index: 10;
@@ -105,17 +106,45 @@
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             border-bottom: 1px solid rgba(96, 165, 250, 0.3);
-            padding: 22px 20px;
-            text-align: center;
+            padding: 20px 30px;
             box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
         }
 
-        header h1 {
+        .header-icerik {
             display: flex;
             align-items: center;
-            justify-content: center;
-            gap: 20px;
-            font-size: 34px;
+            gap: 25px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* BÜYÜK PNG FOTOĞRAF */
+        .logo-resim {
+            width: 140px;
+            height: 140px;
+            object-fit: cover;
+            border-radius: 15px;
+            border: 3px solid #60a5fa;
+            box-shadow: 0 0 30px rgba(96, 165, 250, 0.7),
+                        0 0 60px rgba(6, 182, 212, 0.4);
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+            background: #0f172a;
+        }
+
+        .logo-resim:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 40px rgba(96, 165, 250, 0.9),
+                        0 0 80px rgba(6, 182, 212, 0.6);
+        }
+
+        .baslik-alani {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .baslik-alani h1 {
+            font-size: 36px;
             background: linear-gradient(90deg, #60a5fa, #06b6d4, #818cf8);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -123,38 +152,20 @@
             letter-spacing: 2px;
             filter: drop-shadow(0 0 20px rgba(96, 165, 250, 0.5));
             font-weight: 800;
-            flex-wrap: wrap;
+            line-height: 1.2;
         }
 
-        .logo-resim {
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid #60a5fa;
-            box-shadow: 0 0 20px rgba(96, 165, 250, 0.7),
-                        0 0 40px rgba(6, 182, 212, 0.4);
-            transition: all 0.3s ease;
-            -webkit-text-fill-color: initial;
-        }
-
-        .logo-resim:hover {
-            transform: scale(1.15) rotate(5deg);
-            box-shadow: 0 0 30px rgba(96, 165, 250, 0.9),
-                        0 0 60px rgba(6, 182, 212, 0.6);
-        }
-
-        header p {
+        .baslik-alani p {
             color: #93c5fd;
-            font-size: 14px;
-            margin-top: 6px;
+            font-size: 15px;
+            margin-top: 8px;
             font-weight: 500;
         }
 
         .container {
             display: flex;
             flex: 1;
-            min-height: calc(100vh - 110px);
+            min-height: calc(100vh - 200px);
             position: relative;
             z-index: 5;
         }
@@ -349,13 +360,17 @@
             main {
                 padding: 25px 20px;
             }
-            header h1 {
-                font-size: 22px;
-                gap: 12px;
+            .header-icerik {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
             }
             .logo-resim {
-                width: 50px;
-                height: 50px;
+                width: 100px;
+                height: 100px;
+            }
+            .baslik-alani h1 {
+                font-size: 22px;
             }
             main h2 {
                 font-size: 24px;
@@ -379,11 +394,13 @@
     <div class="blur-indigo"></div>
 
     <header>
-        <h1>
-            <img src="FOTO-ADI.jpg" alt="Troll Logo" class="logo-resim">
-            TROLL AKADEMİ 🎭
-        </h1>
-        <p>FiveM Troll Rehberi — Eğlen, Troll Yap, Ban Yeme!</p>
+        <div class="header-icerik">
+            <img src="safak-sezer.jpg" alt="Troll Logo" class="logo-resim">
+            <div class="baslik-alani">
+                <h1>🎭 TROLL AKADEMİ 🎭</h1>
+                <p>FiveM Troll Rehberi — Eğlen, Troll Yap, Ban Yeme!</p>
+            </div>
+        </div>
     </header>
 
     <div class="container">
