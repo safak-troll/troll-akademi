@@ -255,6 +255,18 @@
             margin-bottom: 20px;
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3),
                         inset 0 1px 0 rgba(255, 255, 255, 0.08);
+            transition: all 0.3s ease;
+            cursor: default;
+        }
+
+        /* HOVER EFEKTİ - Tüm kartlar için */
+        .kart:hover {
+            transform: scale(1.03);
+            border-color: rgba(96, 165, 250, 0.7);
+            box-shadow: 0 12px 45px rgba(96, 165, 250, 0.5),
+                        0 0 30px rgba(59, 130, 246, 0.3),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.15);
+            background: rgba(15, 23, 42, 0.7);
         }
 
         .kart h3 {
@@ -265,35 +277,6 @@
             margin-bottom: 12px;
             font-size: 22px;
             font-weight: 700;
-        }
-
-        /* ÖNE ÇIKAN KART (Kaliteli Troll'ün 3 Kuralı) */
-        .kart-buyuk {
-            background: linear-gradient(135deg, rgba(59, 130, 246, 0.25), rgba(6, 182, 212, 0.25));
-            border: 2px solid rgba(96, 165, 250, 0.6);
-            border-radius: 18px;
-            padding: 35px;
-            margin-bottom: 25px;
-            box-shadow: 0 0 40px rgba(59, 130, 246, 0.4),
-                        inset 0 1px 0 rgba(255, 255, 255, 0.15);
-        }
-
-        .kart-buyuk h3 {
-            font-size: 28px;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
-        .kart-buyuk p {
-            font-size: 18px;
-            line-height: 2;
-            margin-bottom: 12px;
-            color: #e2e8f0;
-        }
-
-        .kart-buyuk strong {
-            color: #60a5fa;
-            font-size: 20px;
         }
 
         /* MOBİL */
@@ -326,14 +309,8 @@
             main h2 {
                 font-size: 24px;
             }
-            .kart-buyuk {
-                padding: 22px;
-            }
-            .kart-buyuk h3 {
-                font-size: 22px;
-            }
-            .kart-buyuk p {
-                font-size: 16px;
+            .kart:hover {
+                transform: scale(1.01);
             }
             body::before,
             body::after,
@@ -386,7 +363,7 @@
                 <h2>😈 Troll Nasıl Yapılır?</h2>
                 <p>Bizim yaptığımız troller <strong>kaliteli troll</strong>dür. Öyle boktan boktan troll yapanlara benzemez bizim trollümüz. Biz troll yaparken öyle bir troll yapacağız ki <strong>karşıdaki kişi bunu anlamayacak</strong>. Sen adamı trollersin, parasını çalarsın, arabasını çalarsın, her türlü troll yaparsın ama adam bunu anlamaz bile, seni normal biri sanar.</p>
 
-                <div class="kart-buyuk">
+                <div class="kart">
                     <h3>🎭 Kaliteli Troll'ün 3 Kuralı</h3>
                     <p><strong>1.</strong> Karşıdaki anlamayacak — seni normal biri sanacak.</p>
                     <p><strong>2.</strong> Ban yemeyeceksin — kayıt, şikayet, destek yok.</p>
