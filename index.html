@@ -22,17 +22,31 @@
             overflow-x: hidden;
         }
 
-        body::before,
+        /* FOTOĞRAF ARKA PLANI - EN ALTTA */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('safak-sezer.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0.08;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* RENKLİ BLUR DAİRELERİ */
         body::after {
             content: '';
             position: fixed;
             border-radius: 50%;
             filter: blur(100px);
-            z-index: 0;
+            z-index: 1;
             pointer-events: none;
-        }
-
-        body::before {
             width: 550px;
             height: 550px;
             background: #3b82f6;
@@ -42,13 +56,18 @@
             animation: float1 15s ease-in-out infinite;
         }
 
-        body::after {
+        .blur-cyan {
+            position: fixed;
             width: 650px;
             height: 650px;
             background: #06b6d4;
+            border-radius: 50%;
+            filter: blur(100px);
             bottom: -150px;
             right: -150px;
             opacity: 0.3;
+            z-index: 1;
+            pointer-events: none;
             animation: float2 18s ease-in-out infinite;
         }
 
@@ -63,7 +82,7 @@
             left: 50%;
             transform: translate(-50%, -50%);
             opacity: 0.25;
-            z-index: 0;
+            z-index: 1;
             pointer-events: none;
             animation: float3 20s ease-in-out infinite;
         }
@@ -78,7 +97,7 @@
             top: 20%;
             right: 10%;
             opacity: 0.25;
-            z-index: 0;
+            z-index: 1;
             pointer-events: none;
             animation: float1 22s ease-in-out infinite reverse;
         }
@@ -98,7 +117,7 @@
             50% { transform: translate(-40%, -60%) scale(1.2); }
         }
 
-        /* ÜST BAŞLIK */
+        /* ÜST BAŞLIK - ESKİ HALİ, ORTADA */
         header {
             position: relative;
             z-index: 10;
@@ -106,45 +125,13 @@
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             border-bottom: 1px solid rgba(96, 165, 250, 0.3);
-            padding: 20px 30px;
+            padding: 22px 20px;
+            text-align: center;
             box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
         }
 
-        .header-icerik {
-            display: flex;
-            align-items: center;
-            gap: 25px;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        /* BÜYÜK PNG FOTOĞRAF */
-        .logo-resim {
-            width: 140px;
-            height: 140px;
-            object-fit: cover;
-            border-radius: 15px;
-            border: 3px solid #60a5fa;
-            box-shadow: 0 0 30px rgba(96, 165, 250, 0.7),
-                        0 0 60px rgba(6, 182, 212, 0.4);
-            transition: all 0.3s ease;
-            flex-shrink: 0;
-            background: #0f172a;
-        }
-
-        .logo-resim:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 40px rgba(96, 165, 250, 0.9),
-                        0 0 80px rgba(6, 182, 212, 0.6);
-        }
-
-        .baslik-alani {
-            flex: 1;
-            min-width: 0;
-        }
-
-        .baslik-alani h1 {
-            font-size: 36px;
+        header h1 {
+            font-size: 34px;
             background: linear-gradient(90deg, #60a5fa, #06b6d4, #818cf8);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -152,20 +139,19 @@
             letter-spacing: 2px;
             filter: drop-shadow(0 0 20px rgba(96, 165, 250, 0.5));
             font-weight: 800;
-            line-height: 1.2;
         }
 
-        .baslik-alani p {
+        header p {
             color: #93c5fd;
-            font-size: 15px;
-            margin-top: 8px;
+            font-size: 14px;
+            margin-top: 6px;
             font-weight: 500;
         }
 
         .container {
             display: flex;
             flex: 1;
-            min-height: calc(100vh - 200px);
+            min-height: calc(100vh - 110px);
             position: relative;
             z-index: 5;
         }
@@ -360,16 +346,7 @@
             main {
                 padding: 25px 20px;
             }
-            .header-icerik {
-                flex-direction: column;
-                text-align: center;
-                gap: 15px;
-            }
-            .logo-resim {
-                width: 100px;
-                height: 100px;
-            }
-            .baslik-alani h1 {
+            header h1 {
                 font-size: 22px;
             }
             main h2 {
@@ -378,8 +355,8 @@
             .kart:hover {
                 transform: scale(1.01);
             }
-            body::before,
             body::after,
+            .blur-cyan,
             .blur-mavi,
             .blur-indigo {
                 filter: blur(70px);
@@ -390,17 +367,13 @@
 </head>
 <body>
 
+    <div class="blur-cyan"></div>
     <div class="blur-mavi"></div>
     <div class="blur-indigo"></div>
 
     <header>
-        <div class="header-icerik">
-            <img src="safak-sezer.jpg" alt="Troll Logo" class="logo-resim">
-            <div class="baslik-alani">
-                <h1>🎭 TROLL AKADEMİ 🎭</h1>
-                <p>FiveM Troll Rehberi — Eğlen, Troll Yap, Ban Yeme!</p>
-            </div>
-        </div>
+        <h1>🎭 TROLL AKADEMİ 🎭</h1>
+        <p>FiveM Troll Rehberi — Eğlen, Troll Yap, Ban Yeme!</p>
     </header>
 
     <div class="container">
