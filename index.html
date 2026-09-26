@@ -3,45 +3,251 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Şafak'ın Sitesi</title>
+    <title>Troll Akademi 🎭</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-            text-align: center;
-            padding: 50px;
+        * {
             margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #0a0a0a;
+            color: #e0e0e0;
             min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
-        h1 { font-size: 48px; margin-bottom: 10px; }
-        p { font-size: 20px; opacity: 0.9; }
-        .kutu {
-            background: rgba(255,255,255,0.1);
-            padding: 30px;
-            border-radius: 20px;
-            display: inline-block;
-            margin-top: 30px;
+
+        /* ÜST BAŞLIK */
+        header {
+            background: linear-gradient(90deg, #8b0000, #ff0000, #8b0000);
+            padding: 20px;
+            text-align: center;
+            border-bottom: 3px solid #ff0000;
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
         }
-        button {
-            background: white;
-            color: #764ba2;
+
+        header h1 {
+            font-size: 32px;
+            color: white;
+            text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000;
+            letter-spacing: 2px;
+        }
+
+        header p {
+            color: #ffcccc;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+
+        /* ANA LAYOUT */
+        .container {
+            display: flex;
+            flex: 1;
+            min-height: calc(100vh - 100px);
+        }
+
+        /* SOL MENÜ */
+        nav {
+            width: 250px;
+            background: #1a0000;
+            border-right: 2px solid #ff0000;
+            padding: 20px 0;
+            flex-shrink: 0;
+        }
+
+        nav button {
+            display: block;
+            width: 100%;
+            background: transparent;
+            color: #ff6666;
             border: none;
-            padding: 15px 30px;
-            border-radius: 10px;
-            font-size: 18px;
+            padding: 18px 25px;
+            text-align: left;
+            font-size: 16px;
             cursor: pointer;
-            margin-top: 20px;
+            transition: all 0.3s;
+            border-left: 4px solid transparent;
+            font-family: inherit;
         }
-        button:hover { background: #f0f0f0; }
+
+        nav button:hover {
+            background: rgba(255, 0, 0, 0.1);
+            color: #ff0000;
+            border-left: 4px solid #ff0000;
+        }
+
+        nav button.active {
+            background: rgba(255, 0, 0, 0.2);
+            color: #ff0000;
+            border-left: 4px solid #ff0000;
+            font-weight: bold;
+            text-shadow: 0 0 8px #ff0000;
+        }
+
+        /* SAĞ İÇERİK */
+        main {
+            flex: 1;
+            padding: 40px;
+            overflow-y: auto;
+        }
+
+        .sayfa {
+            display: none;
+            animation: fadeIn 0.5s;
+        }
+
+        .sayfa.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        main h2 {
+            color: #ff0000;
+            font-size: 28px;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+            border-bottom: 2px solid #ff0000;
+            padding-bottom: 10px;
+        }
+
+        main p {
+            line-height: 1.8;
+            margin-bottom: 15px;
+            color: #cccccc;
+        }
+
+        main ul {
+            margin: 15px 0 15px 30px;
+            color: #cccccc;
+            line-height: 2;
+        }
+
+        main li {
+            margin-bottom: 8px;
+        }
+
+        .kart {
+            background: #1a0000;
+            border: 1px solid #ff0000;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 0 15px rgba(255, 0, 0, 0.2);
+        }
+
+        .kart h3 {
+            color: #ff3333;
+            margin-bottom: 10px;
+        }
+
+        /* MOBİL */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+            nav {
+                width: 100%;
+                border-right: none;
+                border-bottom: 2px solid #ff0000;
+                padding: 10px 0;
+            }
+            nav button {
+                padding: 12px 20px;
+                font-size: 14px;
+            }
+            main {
+                padding: 20px;
+            }
+            header h1 {
+                font-size: 22px;
+            }
+        }
     </style>
 </head>
 <body>
-    <div class="kutu">
-        <h1>Merhaba! 👋</h1>
-        <p>Ben Şafak. Bu benim ilk sitem.</p>
-        <p>Ve şu an kod yazmayı öğreniyorum! 🚀</p>
-        <button onclick="alert('Teşekkürler! 😊')">Bana Tıkla</button>
+
+    <header>
+        <h1>🎭 TROLL AKADEMİ 🎭</h1>
+        <p>FiveM Troll Rehberi — Eğlen, Troll Yap, Ban Yeme!</p>
+    </header>
+
+    <div class="container">
+        <nav>
+            <button class="active" onclick="sayfaGoster('ana', this)">🏠 Ana Sayfa</button>
+            <button onclick="sayfaGoster('troll', this)">😈 Troll Nasıl Yapılır</button>
+            <button onclick="sayfaGoster('ban', this)">🛡️ Ban Yememe</button>
+            <button onclick="sayfaGoster('klipler', this)">🎬 Klipler</button>
+        </nav>
+
+        <main>
+            <!-- ANA SAYFA -->
+            <div id="ana" class="sayfa active">
+                <h2>Hoş Geldin Troll Kardeşim! 👋</h2>
+                <p>Burası <strong>Troll Akademi</strong> — FiveM'de troll yapmayı sevenlerin buluşma noktası.</p>
+                <p>Burada öğreneceklerin:</p>
+                <ul>
+                    <li>😈 Etkili troll nasıl yapılır?</li>
+                    <li>🛡️ Ban yemeden nasıl troll yapılır?</li>
+                    <li>🎬 Efsane troll klipleri</li>
+                    <li>💀 Hard troll taktikleri</li>
+                </ul>
+                <div class="kart">
+                    <h3>⚠️ Uyarı</h3>
+                    <p>Buradaki bilgiler sadece eğlence amaçlıdır. Aşırıya kaçarsan ban yersin, sorumluluk sana ait! 😄</p>
+                </div>
+            </div>
+
+            <!-- TROLL SAYFASI -->
+            <div id="troll" class="sayfa">
+                <h2>😈 Troll Nasıl Yapılır?</h2>
+                <p>Buraya kendi yazacağın içerik gelecek. Bana yaz, ben yerleştireyim.</p>
+                <div class="kart">
+                    <h3>İçerik bekleniyor...</h3>
+                    <p>Sen bana "troll nasıl yapılır" hakkında yazı ver, buraya koyalım.</p>
+                </div>
+            </div>
+
+            <!-- BAN YEMEME SAYFASI -->
+            <div id="ban" class="sayfa">
+                <h2>🛡️ Ban Yememe Taktikleri</h2>
+                <p>Buraya kendi yazacağın içerik gelecek. Bana yaz, ben yerleştireyim.</p>
+                <div class="kart">
+                    <h3>İçerik bekleniyor...</h3>
+                    <p>Ban yememek için taktiklerini yaz, buraya koyalım.</p>
+                </div>
+            </div>
+
+            <!-- KLİPLER SAYFASI -->
+            <div id="klipler" class="sayfa">
+                <h2>🎬 Efsane Klipler</h2>
+                <p>Buraya YouTube kliplerini ekleyeceğiz.</p>
+                <div class="kart">
+                    <h3>İçerik bekleniyor...</h3>
+                    <p>Video linklerini at, buraya gömelim.</p>
+                </div>
+            </div>
+        </main>
     </div>
+
+    <script>
+        function sayfaGoster(id, btn) {
+            // Tüm sayfaları gizle
+            document.querySelectorAll('.sayfa').forEach(s => s.classList.remove('active'));
+            // Tüm butonlardan active kaldır
+            document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
+            // İstenen sayfayı göster
+            document.getElementById(id).classList.add('active');
+            // Tıklanan butonu aktif yap
+            btn.classList.add('active');
+        }
+    </script>
+
 </body>
 </html>
