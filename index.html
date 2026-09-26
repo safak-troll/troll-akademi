@@ -13,81 +13,30 @@
 
         body {
             font-family: 'Segoe UI', Arial, sans-serif;
-            background: #0a0014;
+            background: #0d0d0d;
             color: #e0e0e0;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
-            position: relative;
-            overflow-x: hidden;
         }
 
-        /* ARKA PLAN RENKLİ BLUR DAİRELERİ */
-        body::before,
-        body::after {
-            content: '';
-            position: fixed;
-            border-radius: 50%;
-            filter: blur(120px);
-            z-index: 0;
-            pointer-events: none;
-        }
-
-        body::before {
-            width: 500px;
-            height: 500px;
-            background: #7c3aed;
-            top: -100px;
-            left: -100px;
-            opacity: 0.5;
-            animation: float1 15s ease-in-out infinite;
-        }
-
-        body::after {
-            width: 600px;
-            height: 600px;
-            background: #ec4899;
-            bottom: -150px;
-            right: -150px;
-            opacity: 0.4;
-            animation: float2 18s ease-in-out infinite;
-        }
-
-        @keyframes float1 {
-            0%, 100% { transform: translate(0, 0); }
-            50% { transform: translate(80px, 60px); }
-        }
-
-        @keyframes float2 {
-            0%, 100% { transform: translate(0, 0); }
-            50% { transform: translate(-80px, -60px); }
-        }
-
-        /* ÜST BAŞLIK - CAM EFEKTLİ */
+        /* ÜST BAŞLIK */
         header {
-            position: relative;
-            z-index: 10;
-            background: rgba(124, 58, 237, 0.2);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(236, 72, 153, 0.3);
+            background: linear-gradient(90deg, #7c3aed, #ec4899, #f97316);
             padding: 22px 20px;
             text-align: center;
-            box-shadow: 0 4px 30px rgba(236, 72, 153, 0.2);
+            box-shadow: 0 0 25px rgba(236, 72, 153, 0.6);
         }
 
         header h1 {
             font-size: 34px;
-            background: linear-gradient(90deg, #a855f7, #ec4899, #f97316);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: white;
+            text-shadow: 0 0 10px #ec4899, 0 0 20px #7c3aed;
             letter-spacing: 2px;
-            filter: drop-shadow(0 0 15px rgba(236, 72, 153, 0.5));
         }
 
         header p {
-            color: #d8b4fe;
+            color: #ffe0f0;
             font-size: 14px;
             margin-top: 6px;
         }
@@ -97,35 +46,28 @@
             display: flex;
             flex: 1;
             min-height: calc(100vh - 110px);
-            position: relative;
-            z-index: 5;
         }
 
-        /* SOL MENÜ - CAM EFEKTLİ */
+        /* SOL MENÜ - KART STİLİ */
         nav {
-            width: 270px;
-            background: rgba(26, 10, 46, 0.4);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-right: 1px solid rgba(236, 72, 153, 0.3);
+            width: 260px;
+            background: #14041f;
+            border-right: 2px solid #ec4899;
             padding: 25px 18px;
             flex-shrink: 0;
             display: flex;
             flex-direction: column;
             gap: 14px;
-            box-shadow: 4px 0 30px rgba(0, 0, 0, 0.3);
         }
 
         nav button {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
             width: 100%;
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
+            background: linear-gradient(135deg, #1a0a2e, #2a1040);
             color: #d8b4fe;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 2px solid #7c3aed;
             padding: 18px 20px;
             font-size: 16px;
             cursor: pointer;
@@ -133,29 +75,28 @@
             font-family: inherit;
             border-radius: 14px;
             text-align: left;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 15px rgba(124, 58, 237, 0.2);
         }
 
         nav button:hover {
             transform: translateX(8px) scale(1.03);
-            background: rgba(255, 255, 255, 0.1);
-            border-color: rgba(236, 72, 153, 0.5);
+            border-color: #ec4899;
             color: #ec4899;
-            box-shadow: 0 6px 30px rgba(236, 72, 153, 0.4);
+            box-shadow: 0 6px 25px rgba(236, 72, 153, 0.5);
+            background: linear-gradient(135deg, #2a1040, #3d1458);
         }
 
         nav button.active {
-            background: linear-gradient(135deg, rgba(124, 58, 237, 0.6), rgba(236, 72, 153, 0.6));
+            background: linear-gradient(135deg, #7c3aed, #ec4899);
             color: white;
-            border-color: rgba(249, 115, 22, 0.8);
+            border-color: #f97316;
             font-weight: bold;
-            box-shadow: 0 0 30px rgba(236, 72, 153, 0.7),
-                        inset 0 0 20px rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 25px rgba(236, 72, 153, 0.8);
             transform: translateX(8px);
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+            text-shadow: 0 0 8px rgba(255,255,255,0.5);
         }
 
-        /* SAĞ İÇERİK - CAM KARTLAR */
+        /* SAĞ İÇERİK */
         main {
             flex: 1;
             padding: 45px;
@@ -164,7 +105,7 @@
 
         .sayfa {
             display: none;
-            animation: fadeIn 0.6s;
+            animation: fadeIn 0.5s;
         }
 
         .sayfa.active {
@@ -172,7 +113,7 @@
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(15px); }
+            from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
@@ -181,22 +122,21 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            font-size: 32px;
-            margin-bottom: 25px;
+            font-size: 30px;
+            margin-bottom: 22px;
+            border-bottom: 2px solid #ec4899;
             padding-bottom: 12px;
-            border-bottom: 1px solid rgba(236, 72, 153, 0.4);
-            filter: drop-shadow(0 0 10px rgba(168, 85, 247, 0.4));
         }
 
         main p {
             line-height: 1.8;
             margin-bottom: 15px;
-            color: #dddddd;
+            color: #cccccc;
         }
 
         main ul {
             margin: 15px 0 15px 30px;
-            color: #dddddd;
+            color: #cccccc;
             line-height: 2;
         }
 
@@ -205,15 +145,12 @@
         }
 
         .kart {
-            background: rgba(26, 10, 46, 0.4);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(236, 72, 153, 0.3);
-            border-radius: 16px;
-            padding: 28px;
+            background: linear-gradient(135deg, #1a0a2e, #2d0a3d);
+            border: 1px solid #ec4899;
+            border-radius: 14px;
+            padding: 25px;
             margin-bottom: 20px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3),
-                        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 20px rgba(236, 72, 153, 0.3);
         }
 
         .kart h3 {
@@ -233,7 +170,7 @@
             nav {
                 width: 100%;
                 border-right: none;
-                border-bottom: 1px solid rgba(236, 72, 153, 0.3);
+                border-bottom: 2px solid #ec4899;
                 padding: 15px;
                 flex-direction: row;
                 overflow-x: auto;
@@ -254,11 +191,6 @@
             }
             main h2 {
                 font-size: 24px;
-            }
-            body::before,
-            body::after {
-                filter: blur(80px);
-                opacity: 0.3;
             }
         }
     </style>
