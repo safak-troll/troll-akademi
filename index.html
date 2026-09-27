@@ -22,26 +22,26 @@
             overflow-x: hidden;
         }
 
-        /* SOL ÜSTTEKİ PNG FOTOĞRAF - ŞEFFAF ARKA PLAN, SAĞA KAYDIRILMIŞ */
+        /* PNG FOTOĞRAF - SAYFAYLA KAYAR, SAĞA KAYDIRILDI */
         .arka-foto {
-            position: fixed;
-            top: 15px;
-            left: 320px;
-            width: 160px;
+            position: absolute;
+            top: 130px;
+            left: 380px;
+            width: 140px;
             height: auto;
             object-fit: contain;
             opacity: 1;
             z-index: 100;
             pointer-events: none;
-            filter: drop-shadow(0 0 20px rgba(96, 165, 250, 0.7))
-                    drop-shadow(0 0 40px rgba(6, 182, 212, 0.4));
+            filter: drop-shadow(0 0 15px rgba(96, 165, 250, 0.7))
+                    drop-shadow(0 0 30px rgba(6, 182, 212, 0.4));
             transition: all 0.5s ease;
         }
 
         .arka-foto:hover {
             transform: scale(1.08) rotate(-2deg);
-            filter: drop-shadow(0 0 30px rgba(96, 165, 250, 1))
-                    drop-shadow(0 0 60px rgba(6, 182, 212, 0.7));
+            filter: drop-shadow(0 0 25px rgba(96, 165, 250, 1))
+                    drop-shadow(0 0 50px rgba(6, 182, 212, 0.7));
         }
 
         /* RENKLİ BLUR DAİRELERİ */
@@ -333,10 +333,7 @@
 
         @media (max-width: 768px) {
             .arka-foto {
-                width: 90px;
-                top: 10px;
-                left: auto;
-                right: 10px;
+                display: none;
             }
             .container {
                 flex-direction: column;
@@ -381,7 +378,7 @@
 </head>
 <body>
 
-    <!-- SAĞA KAYDIRILMIŞ PNG FOTOĞRAF -->
+    <!-- PNG FOTOĞRAF - SAYFAYLA KAYAR -->
     <img src="boris.png" alt="Şafak Sezer" class="arka-foto">
 
     <div class="blur-mavi"></div>
